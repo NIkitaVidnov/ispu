@@ -1,0 +1,41 @@
+<html>  
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Подсчет кол-ва дней
+        </title>
+    </head>
+    <body>
+        <form>
+        
+        </form>
+        <script>
+          //Текущая дата
+    var todayDate = new Date();
+ 
+    //Выбранная дата
+    var currentDate = new Date(2014, 02, 23);
+ 
+    //Разница во времени
+    var dateDifference = currentDate.getTime() - todayDate.getTime();
+ 
+    //Дата, созданная из остатка времени
+    var remainsDate = new Date(dateDifference);
+ 
+    /* 
+     * Переменные, отражающие остаток времени в нужном формате
+     * Благодарю Sleepwalker'а за код
+     */
+    var remainsSec = (parseInt(remainsDate / 1000));
+    var remainsFullDays = (parseInt(remainsSec / (24 * 60 * 60)));
+    var secInLastDay = remainsSec - remainsFullDays * 24 * 3600;
+    var remainsFullHours = (parseInt(secInLastDay / 3600));
+    var secInLastHour = secInLastDay - remainsFullHours * 3600;
+    var remainsMinutes = (parseInt(secInLastHour / 60));
+    var lastSec = secInLastHour - remainsMinutes * 60;
+ 
+    document.write('Сегодня:' + todayDate + '<br/>');
+    document.write('Осталось дней:' + remainsFullDays);
+        </script>
+    </body>
+</html>
